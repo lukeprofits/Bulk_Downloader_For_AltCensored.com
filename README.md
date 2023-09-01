@@ -1,4 +1,8 @@
 # Bulk_Downloader_For_AltCensored.com
+![Supported OS](https://img.shields.io/badge/Supported%20OS-Windows-blueviolet.svg)
+![Version 1.1.0](https://img.shields.io/badge/Version-1.0.0-blue.svg)
+![Python 3.8+](https://img.shields.io/badge/Python-3.8+-brightgreen.svg)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 A bulk-downloader for [AltCensored.com](https://altcensored.com/), a site that archives controversial YouTube channels that have a chance of being banned. 
 
