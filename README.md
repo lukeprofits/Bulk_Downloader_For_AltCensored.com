@@ -1,6 +1,6 @@
 # Bulk_Downloader_For_AltCensored.com
 
-A bulk-downloader for [AltCensored.com](https://altcensored.com/), a site that archives contraversial YouTube channels that have a chance of being banned. 
+A bulk-downloader for [AltCensored.com](https://altcensored.com/), a site that archives controversial YouTube channels that have a chance of being banned. 
 
 (I do not endorese all the content on the site, but it can be a good source when looking for YouTube channels that have been deleted.)
 
