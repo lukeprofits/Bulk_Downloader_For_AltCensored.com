@@ -2,6 +2,8 @@
 
 A bulk-downloader for [AltCensored.com](https://altcensored.com/), a site that archives contraversial YouTube channels that have a chance of being banned. 
 
+(I obviously do not endorese all the content on the site, but it can be a good source when looking for YouTube channels that have been deleted.)
+
 # How To Use
 
 * Step 1. Install Python
