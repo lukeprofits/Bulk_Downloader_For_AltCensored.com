@@ -1,5 +1,6 @@
 requests
 lxml
+pydub
 fake_useragent
 selenium
 undetected-chromedriver
