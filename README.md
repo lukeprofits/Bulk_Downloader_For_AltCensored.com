@@ -2,7 +2,9 @@
 
 A bulk-downloader for [AltCensored.com](https://altcensored.com/), a site that archives controversial YouTube channels that have a chance of being banned. 
 
-(I do not endorese all the content on the site, but it can be a good source when looking for YouTube channels that have been deleted.)
+When a creator is banned on YouTube, years of helpful content is removed, and AltCensored is a place where this content can be recovered.
+
+(I do not endorese all the content on the site, but it can be a good source when looking for YouTube channels that have been banned.)
 
 # How To Use
 
