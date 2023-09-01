@@ -1,0 +1,5 @@
+requests
+lxml
+fake_useragent
+selenium
+undetected-chromedriver
