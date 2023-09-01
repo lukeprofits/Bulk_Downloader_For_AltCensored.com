@@ -4,6 +4,10 @@
 ![Python 3.8+](https://img.shields.io/badge/Python-3.8+-brightgreen.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
+<p align="center">
+  <br><img src="Example.jpg" alt="AltCensored.com Bulk Video Downloader"><br>
+</p>
+
 A bulk-downloader for [AltCensored.com](https://altcensored.com/), a site that archives controversial YouTube channels that have a chance of being banned. 
 
 When a creator is banned on YouTube, years of helpful content is removed, and AltCensored is a place where this content can be recovered.
@@ -12,9 +16,10 @@ When a creator is banned on YouTube, years of helpful content is removed, and Al
 
 # How To Use
 
-* Step 1. Install Python
-* Step 2. Install Google Chrome (make sure you have the latest version by visiting this link from the chrome browser: [Update Chrome](chrome://settings/help) )
-* Step 3. Run the program with `Windows_Launcher.bat` or from the commandline with `python AltcensoredDownloader.py`
+* Step 1. Make sure you have [Python 3.8](https://www.python.org/downloads/) or newer installed
+* Step 2. Install [Google Chrome](https://www.google.com/chrome/) (make sure you have the latest version by visiting this link from the chrome browser: [Update Chrome](chrome://settings/help))
+* Step 3. [Download the AltCensored Downloader files](https://github.com/lukeprofits/Bulk_Downloader_For_AltCensored.com/archive/refs/heads/main.zip) extract the files from the .zip you downloaded and put them in a folder
+* Step 3. Run the program by double clicking `Windows_Launcher.bat` or from the commandline with `python AltcensoredDownloader.py`
 * Step 4. Follow the prompts. You will need to paste the altcensored channel link to create a spreadsheet called "videos.csv", and then run the downloader after "videos.csv" has been created.
 * Step 5. (COMING SOON!) transcribe all downloded videos and create subtitles using Whisper AI.
 
