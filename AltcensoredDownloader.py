@@ -115,25 +115,29 @@ def get_all_content(driver):
                 tree, driver = get_link_with_selenium(files, session=driver)
 
                 items = tree.xpath(items_xpath)
-                items.pop(0)
-                items.pop(0)
-                for file in items:
-                    file = file.get("href")
-                    #print(file)
-                    if download_file_wait(driver, folder_name=f'content/{clean_title(title)}', file=file, base_url=files, max_retries=5, retry_delay=2):
-                        print(f'Downloaded - {file}')
-                    else:
-                        print('Download failed.')
-                        error = True
+                try:
+                    items.pop(0)
+                    items.pop(0)
 
-                if not error:
-                    write_to_csv(file_path=videos_successfully_downloaded_file, list=[json.dumps(value)])
-                else:
-                    write_to_csv(file_path=videos_that_may_have_failed_file, list=[json.dumps(value)])
+                    for file in items:
+                        file = file.get("href")
+                        #print(file)
+                        if download_file_wait(driver, folder_name=f'content/{clean_title(title)}', file=file, base_url=files, max_retries=5, retry_delay=2):
+                            print(f'Downloaded - {file}')
+                        else:
+                            print('Download failed.')
+                            error = True
+
+                    if not error:
+                        write_to_csv(file_path=videos_successfully_downloaded_file, list=[json.dumps(value)])
+                    else:
+                        write_to_csv(file_path=videos_that_may_have_failed_file, list=[json.dumps(value)])
+                except:
+                    pass
 
     quit_driver(driver)
 
-
+2
 def find_largest_video_files_in_folders():
     # FIND THE LARGEST VIDEO FILE IN EACH FOLDER
     largest_video_files = []
