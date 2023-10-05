@@ -158,38 +158,53 @@ def find_largest_video_files_in_folders():
 
 def convert_mp4_to_wav(input_file):
     print(f'Converting {input_file} to audio')
-    # Replace the path below with the path to your input MP4 file
-    input_mp4_file = input_file
+
+    # Ensure the input file path is absolute
+    absolute_input_file = os.path.abspath(input_file)
+
     # Replace the path below with the path to your output WAV file
-    output_wav_file = f"{input_file[:-4]}.wav"
+    output_wav_file = f"{absolute_input_file[:-4]}.wav"
+
     # Read the MP4 audio file
-    audio = AudioSegment.from_file(input_mp4_file, format="mp4")
+    audio = AudioSegment.from_file(absolute_input_file, format="mp4")
+
     # Export the audio to a WAV file
     audio.export(output_wav_file, format="wav")
     print(f'FINISHED - {output_wav_file}')
     return output_wav_file
 
 
-def use_whisper(audio_file, model='medium', keep_txt=True, keep_srt=True, keep_wav=True, keep_vtt=True, keep_tsv=True, keep_json=True):
+def use_whisper(audio_file, model='medium', keep_txt=True, keep_srt=True, keep_wav=True, keep_vtt=True, keep_tsv=True,
+                keep_json=True):
     print(f'Converting {audio_file} to text')
 
-    #  NOTE TO FUTURE EMPLOYERS: I know this is a stupid way to do it.
-    # I had already written it to work this way for something different months ago, and I'm not rewriting it right now.
-    command = f'whisper "{audio_file}" --model {model} --language English'  #base is good enough. large for pro
+    command = f'whisper "{audio_file}" --model {model} --language English'  # base is good enough. large for pro
 
-    # Execute the command
-    os.system(command)
-    audio_file_name = audio_file[:-4]
-    created_text_file = audio_file_name + '.txt'
-    if not keep_json: os.remove(audio_file_name + '.json')
-    if not keep_tsv: os.remove(audio_file_name + '.tsv')
-    if not keep_vtt: os.remove(audio_file_name + '.vtt')
-    if not keep_wav: os.remove(audio_file)
-    if not keep_srt: os.remove(audio_file_name + '.srt')
+    # Save the current directory
+    current_dir = os.getcwd()
+
+    # Determine the target directory (where the audio file is)
+    target_dir = os.path.dirname(audio_file)
+
+    # Change directory, execute command, and revert back, all in one line
+    os.system(f'cd {target_dir} && {command} && cd {current_dir}')
+
+    audio_file_name_base = os.path.basename(audio_file)[:-4]
+    created_text_file = os.path.join(target_dir, audio_file_name_base + '.txt')
+
+    if not keep_json: os.remove(os.path.join(target_dir, audio_file_name_base + '.json'))
+    if not keep_tsv: os.remove(os.path.join(target_dir, audio_file_name_base + '.tsv'))
+    if not keep_vtt: os.remove(os.path.join(target_dir, audio_file_name_base + '.vtt'))
+    if not keep_wav: os.remove(os.path.join(target_dir, audio_file))
+    if not keep_srt: os.remove(os.path.join(target_dir, audio_file_name_base + '.srt'))
+
     with open(file=created_text_file, mode='r', encoding='utf-8') as f:
         text = f.read()
-    if not keep_txt: os.remove(audio_file_name + '.txt')
+
+    if not keep_txt: os.remove(os.path.join(target_dir, audio_file_name_base + '.txt'))
+
     print(text)
+
     return text
 
 
